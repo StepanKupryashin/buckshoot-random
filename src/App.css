@@ -40,3 +40,266 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Базовые стили */
+:root {
+  --primary-color: #646cff;
+  --secondary-color: #535bf2;
+  --bg-color: #ffffff;
+  --text-color: #213547;
+  --border-color: #e0e0e0;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #242424;
+    --text-color: rgba(255, 255, 255, 0.87);
+    --border-color: #333;
+    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0 10px;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.app-header {
+  padding: 20px 0;
+  text-align: center;
+}
+
+.app-header h1 {
+  font-size: 1.5rem;
+}
+
+.main-content {
+  flex: 1;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.card {
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: var(--card-shadow);
+}
+
+/* Элементы управления */
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.control-group label {
+  font-weight: 500;
+}
+
+.round-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.round-buttons button {
+  flex: 1;
+  padding: 8px 0;
+  color: #213547;
+}
+
+input[type="number"] {
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  width: 100%;
+}
+
+button {
+  border-radius: 4px;
+  border: 1px solid transparent;
+  padding: 10px;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #f0f0f0;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+button.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.generate-btn {
+  background-color: var(--primary-color);
+  color: white;
+  flex: 1;
+}
+
+.history-toggle {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Результаты */
+.results {
+  margin-top: 20px;
+}
+
+.player-results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.player-result-card {
+  background-color: rgba(100, 108, 255, 0.1);
+  border-radius: 6px;
+  padding: 12px;
+}
+
+.player-result-card h4 {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.player-result-card ul {
+  list-style: none;
+  font-size: 0.85rem;
+}
+
+.player-result-card li {
+  padding: 3px 0;
+}
+
+.round-info, .excluded-notice {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 10px 0;
+  text-align: center;
+}
+
+/* История */
+.history-panel {
+  margin-top: 20px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 20px;
+}
+
+.history-entry {
+  border-bottom: 1px solid var(--border-color);
+  padding: 12px 0;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+}
+
+.round-badge {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+}
+
+.players-count {
+  color: #666;
+}
+
+.time {
+  color: #666;
+}
+
+.history-results {
+  font-size: 0.85rem;
+}
+
+.history-player-result {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.history-player-result .items {
+  color: #666;
+  text-align: right;
+  max-width: 60%;
+  word-break: break-word;
+}
+
+.no-items, .empty-history {
+  color: #888;
+  font-style: italic;
+  text-align: center;
+  padding: 10px;
+}
+
+.app-footer {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* Адаптация для очень маленьких экранов */
+@media (max-width: 400px) {
+  .player-results-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  .history-header {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  
+  .history-header span {
+    flex: 1 1 50%;
+  }
+}

@@ -9,3 +9,10 @@ export const ITEMS = [
 "Таблетки",
 "Реверс",
 ];
+
+export const EXCLUDED_ITEMS_ROUND_2 = [
+    "Телефон",
+    "Адреналин",
+    "Таблетки",
+    "Реверс"
+  ]
