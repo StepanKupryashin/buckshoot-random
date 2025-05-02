@@ -106,7 +106,7 @@ function App() {
                 type="number" 
                 min="2" 
                 value={playerCount}
-                onChange={(e) => setPlayerCount(Math.max(2, parseInt(e.target.value) || 2))}
+                onChange={(e) => setPlayerCount(Math.max(2, parseInt(e.target.value)))}
               />
             </div>
           </div>
